@@ -7,7 +7,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 
 // MongoDB Mongoose SetUp
-mongoose.connect(`mongodb+srv://amorPerfecto:${process.env.MONGO_PASS}@cluster0-v9m8j.gcp.mongodb.net/amor-perfecto`, {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://amorPerfecto:Cafeperfecto2020@cluster0-v9m8j.gcp.mongodb.net/amor-perfecto`, {useNewUrlParser: true, useUnifiedTopology: true });
 
 // Routes Import
 var indexRouter = require('./routes/index');
