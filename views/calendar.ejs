@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+    <title>Amor Perfecto</title>
+</head>
+
+<style>
+    iframe {
+        min-height: 630px;
+    }
+</style>
+
+<body>
+
+    <%- include('./partials/header') %>
+
+
+
+    <section class="baristas-section">
+
+        <div class="container">
+        <div class="page-title">
+            <hr class="deco-line-1">
+            <h1>CONOCE A NUESTROS EXPERTOS</h1>
+            <hr class="deco-line-1">
+            <br>
+            <h1>Hola <span style="color: #A33D3D;"><%= clientName.name %></span></h1>
+            <h3 style="font-family: 'Gotham-medium';">Gracias por comprar el mejor café del mundo</h3>
+            <h3 style="font-family: 'Gotham-medium';">Ahora podrás aprender a disfrutarlo al 100% con: <span
+                    style="color: #A33D3D;"><%= barista.name %></span>
+            </h3>
+        </div>
+        <input type="hidden" value="<%=barista.calendarLink%>" id="baristaCalendar">
+        <input type="hidden" value="<%=barista.id%>" id="baristaId">
+        <input type="hidden" value="<%=clientName.name%>" id="clientName">
+        <input type="hidden" value="<%=clientName.email%>" id="clientEmail">
+        <input type="hidden" value="<%=orderId%>" id="orderId">
+        <div id="calendly"></div>
+        </div>
+
+    </section>
+
+    <section class="loader-backdrop">
+        <img src="https://www.cafeamorperfecto.com/wp-content/uploads/2019/05/1_Mesa_de_trabajo_1.png"
+            alt="cafe-amor-perfecto">
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="/scripts/scripts.js"></script>
+
+    <!-- Calendly -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+    <script>
+        //DOM ELEMENTS 
+        const baristaCalendar = $('#baristaCalendar').val();
+        const baristaId = $('#baristaId').val();
+        const clientName = $('#clientName').val();
+        const clientEmail = $('#clientEmail').val();
+        const orderId = $('#orderId').val();
+
+
+        Calendly.initInlineWidget({
+            url: `https://calendly.com/${baristaCalendar}`,
+            parentElement: document.getElementById('calendly'),
+            prefill: {
+                name: clientName,
+                email: clientEmail
+            },
+            utm: {}
+        });
+
+        function isCalendlyEvent(e) {
+            return e.data.event &&
+                e.data.event.indexOf('calendly') === 0;
+        };
+
+        window.addEventListener(
+            'message',
+            function (e) {
+                if (isCalendlyEvent(e)) {
+                    const event = e.data.event;
+                    if (event === 'calendly.event_scheduled') {
+                        $.post("/barista/addMeeting", {
+                            orderId: orderId,
+                            baristaId: baristaId
+                        });
+                    }
+                }
+            }
+        );
+    </script>
+
+
+    <!-- <script>
+        const calendlyIframe = $('#calendlyIframe')[0];
+        const innerDoc =calendlyIframe.contentDocument ||calendlyIframe.contentWindow.document;
+        console.log(innerDoc.body);
+        
+        console.log(calendlyIframe.contentWindow.document.getElementsByTagName('button'));
+
+
+
+    </script> -->
+</body>
+
+
+</html>
