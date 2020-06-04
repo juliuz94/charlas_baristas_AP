@@ -22,6 +22,15 @@
   <section class="baristas-section">
 
     <div class="container">
+
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" id="infoAlert" style="width: 80%; margin: 0 auto;">
+        <button type="button" class="close" id="markAlertSeen" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="alert-heading">Recuerda que</h4>
+        <p>Todas las compras a partir de <strong>22 de Mayo</strong> aplican</p>
+      </div>
+
       <div class="page-title">
         <hr class="deco-line-1">
         <h1>CONOCE A NUESTROS EXPERTOS</h1>
@@ -31,25 +40,24 @@
       <div class="row baristas-row">
 
         <% baristas.forEach(barista => { %>
-          <div class="col-md-6 col-sm-12">
-            <div class="card barista-card">
-              <img
-                src="<%=barista.imageUrl%>"
-                class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title"><%=barista.name%></h4>
-                <p class="card-text"><%=barista.title%></p>
-                <a href="/barista/<%=barista.name%>" class="btn btn-block btn-sm">CONOCER MÁS</a>
-              </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="card barista-card">
+            <img src="<%=barista.imageUrl%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title"><%=barista.name%></h4>
+              <p class="card-text"><%=barista.title%></p>
+              <a href="/barista/<%=barista.name%>" class="btn btn-block btn-sm">CONOCER MÁS</a>
             </div>
           </div>
+        </div>
         <% }); %>
       </div>
     </div>
   </section>
 
   <section class="loader-backdrop">
-    <img src="https://www.cafeamorperfecto.com/wp-content/uploads/2019/05/1_Mesa_de_trabajo_1.png" alt="cafe-amor-perfecto">
+    <img src="https://www.cafeamorperfecto.com/wp-content/uploads/2019/05/1_Mesa_de_trabajo_1.png"
+      alt="cafe-amor-perfecto">
   </section>
 
   <!-- Optional JavaScript -->
@@ -64,6 +72,26 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
   <script src="/scripts/scripts.js"></script>
+
+  <script>
+    const infoAlert = $('#infoAlert');
+    const marktAlertSeen = $('#markAlertSeen');
+
+    function markAsRead() {
+      document.cookie = "markAlertSeen=true";
+      console.log(document.cookie);
+    }
+
+    marktAlertSeen.on('click', () => {
+      markAsRead();
+    });
+
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('markAlertSeen='))) {
+      infoAlert.css('display', 'none');
+    }
+
+    console.log(document.cookie);
+  </script>
 </body>
 
 
