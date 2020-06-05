@@ -5,6 +5,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+const flash = require("express-flash");
+const session = require("express-session");
 
 // MongoDB Mongoose SetUp
 mongoose.connect(`mongodb+srv://amorPerfecto:Cafeperfecto2020@cluster0-v9m8j.gcp.mongodb.net/amor-perfecto`, {useNewUrlParser: true, useUnifiedTopology: true });
@@ -12,6 +14,7 @@ mongoose.connect(`mongodb+srv://amorPerfecto:Cafeperfecto2020@cluster0-v9m8j.gcp
 // Routes Import
 var indexRouter = require('./routes/index');
 var profileRouter = require('./routes/profile');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -24,11 +27,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
+app.use(
+  session({
+    secret: 'el cafe perfecto',
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
 
 
 app.use('/', indexRouter);
 app.use('/barista', profileRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
