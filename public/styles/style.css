@@ -225,7 +225,7 @@ ul li p {
 
 /* EVENTOS */
 .eventos-header-section {
-  height: 85vh;
+  height: 90vh;
   background:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(https://www.cafeamorperfecto.com/wp-content/uploads/2020/06/header-image-conversatorio.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -247,6 +247,17 @@ ul li p {
 
 .eventos-header-section .row .text-div {
   text-align: center;
+  max-height: 80%;
+}
+
+.eventos-header-section .row .text-div h1 {
+  font-size: 5.5rem;
+  line-height: 1;
+}
+
+.eventos-header-section .row .text-div p {
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
 
 .eventos-header-section h1,
@@ -263,7 +274,7 @@ ul li p {
   background-color: #e9ecef;
   font-family: 'Orator', 'sans-serif';
   font-size: 1.3rem;
-  color: black;
+  color: #54020d;
   padding-top: 13px;
   margin-top: 20px;
 }

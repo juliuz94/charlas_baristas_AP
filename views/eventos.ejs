@@ -29,10 +29,10 @@
     <section class="eventos-section">
         <h2>INSCRÍBETE A NUESTRO CONVERSATORIO</h2>
         <form class="formulario-eventos" action="/eventos" method="POST">
-            <input type="text" class="form-control" name="name" placeholder="NOMBRE COMPLETO: ">
-            <input type="text" class="form-control" name="email" placeholder="CORREO ELECTRÓNICO: ">
-            <input type="text" class="form-control" name="telephone" placeholder="NÚMERO DE CONTACTO: ">
-            <button type="submit" class="btn">TERMINAR INSCRIPCIÓN</button>
+            <input type="text" class="form-control" id="nameInput" name="name" placeholder="NOMBRE COMPLETO: ">
+            <input type="text" class="form-control" id="emailInput" name="email" placeholder="CORREO ELECTRÓNICO: ">
+            <input type="text" class="form-control" id="phoneInput" name="telephone" placeholder="NÚMERO DE CONTACTO: ">
+            <button type="submit" id="submitButton" disabled class="btn">TERMINAR INSCRIPCIÓN</button>
         </form>
 
     </section>
@@ -54,6 +54,34 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
     <script src="/scripts/scripts.js"></script>
+
+    <script>
+        const nameField = $('#nameInput');
+        const emailField = $('#emailInput');
+        const phoneField = $('#phoneInput');
+        const submitButton = $('#submitButton');
+
+        function checkFields() {
+            if (!nameField.val()) {
+                submitButton.attr("disabled", true);
+                return;
+            } 
+            if (!emailField.val()) {
+                submitButton.attr("disabled", true);
+                return;   
+            } 
+            if (!phoneField.val()) {
+                submitButton.attr("disabled", true);
+                return;
+            }
+            submitButton.removeAttr('disabled');
+        }
+
+        nameField.on('input', () => checkFields());
+        emailField.on('input', () => checkFields());
+        phoneField.on('input', () => checkFields());
+
+    </script>
 
 
 </body>
