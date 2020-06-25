@@ -14,6 +14,8 @@ router.get('/', async (req, res) => {
     res.render('eventos');
 });
 
+
+/* POST  inscripción evento  */
 router.post('/', async (req, res) => {
     const newInscrito = new Inscrito ({
         name: req.body.name,
@@ -33,5 +35,11 @@ router.post('/', async (req, res) => {
     res.redirect('/eventos');
 
 })
+
+router.get('/inscritos', async (req, res) => {
+    const inscritos = await Inscrito.find({});
+    console.log(inscritos);
+    res.render('lista-inscritos', {inscritos: inscritos});
+});
 
 module.exports = router;
