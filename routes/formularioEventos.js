@@ -19,7 +19,8 @@ router.post('/', async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         phoneNumber: req.body.telephone,
-    })
+        event: 'Conversatorio Día Nacional del Café'
+    });
     newInscrito.save();
 
     const msg = {
