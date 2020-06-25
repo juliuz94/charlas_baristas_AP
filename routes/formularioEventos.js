@@ -3,6 +3,8 @@ var express = require('express');
 var router = express.Router();
 const flash = require("express-flash");
 
+const Inscrito = require('../models/inscrito');
+
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -13,6 +15,13 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    const newInscrito = new Inscrito ({
+        name: req.body.name,
+        email: req.body.email,
+        phoneNumber: req.body.telephone,
+    })
+    newInscrito.save();
+
     const msg = {
         to: req.body.email,
         from: "mercadeo@amorperfectocafe.net",
