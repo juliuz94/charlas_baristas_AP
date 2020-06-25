@@ -237,22 +237,45 @@ ul li p {
 
 .eventos-header-section .row {
   height: 100%;
+  max-width: 100vw;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10%;
-  padding-top: 2%;
 }
 
 .eventos-header-section .row .text-div {
   text-align: center;
   max-height: 80%;
+  width: 100%;
 }
 
 .eventos-header-section .row .text-div h1 {
   font-size: 5.5rem;
   line-height: 1;
+  z-index: 200;
+}
+
+.eventos-header-section .row .text-div #semilla::before{
+  content: 'SEMILLA';
+  color: transparent;
+  position: absolute;
+  z-index: 100;
+  margin-bottom: 20px;
+  -webkit-text-stroke: 1px white;
+  transform: translate(10px, -10px);
+}
+
+.eventos-header-section .row .text-div #taza::before{
+  content: 'TAZA';
+  color: transparent;
+  position: absolute;
+  z-index: 100;
+  margin-bottom: 20px;
+  -webkit-text-stroke: 1px white;
+  transform: translate(0px, 5px);
 }
 
 .eventos-header-section .row .text-div p {
@@ -322,6 +345,15 @@ ul li p {
 }
 
 @media(max-width: 750px) {
+
+  .eventos-header-section .row .text-div h1 {
+    font-size: 4rem;
+  }
+
+  .eventos-header-section .row .text-div p {
+    padding: 0 20px;
+  }
+  
   .eventos-section form {
     margin-left: 20px;
     margin-right: 20px;
