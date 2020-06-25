@@ -222,6 +222,125 @@ ul li p {
   margin-top: 10px;
 }
 
+
+/* EVENTOS */
+.eventos-header-section {
+  height: 85vh;
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(https://www.cafeamorperfecto.com/wp-content/uploads/2020/06/header-image-conversatorio.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eventos-header-section .row {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10%;
+  padding-top: 2%;
+}
+
+.eventos-header-section .row .text-div {
+  text-align: center;
+}
+
+.eventos-header-section h1,
+.eventos-header-section p {
+  color: white;
+}
+
+.eventos-section {
+  margin: 50px 0;
+}
+
+.eventos-section .form-control {
+  border-radius: 0 !important;
+  background-color: #e9ecef;
+  font-family: 'Orator', 'sans-serif';
+  font-size: 1.3rem;
+  color: black;
+  padding-top: 13px;
+  margin-top: 20px;
+}
+
+.eventos-section .form-control::placeholder {
+  color: black;
+}
+
+.eventos-section .btn {
+  background-color: #54020d;
+  color: white;
+  border-radius: 0;
+  margin-top: 20px;
+}
+
+.eventos-section h2 {
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 600;
+  color: #54020d;
+  letter-spacing: 2px;
+  font-family: 'Muli', sans-serif;
+  position: relative;
+}
+
+.eventos-section h2::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  background-color: #54020d;
+}
+
+.eventos-section h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  background-color: #54020d;
+}
+
+@media(max-width: 750px) {
+  .eventos-section form {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .eventos-section form .btn {
+    width: 100%;
+  }
+
+  .eventos-section h2::before {
+    position: relative;
+    top: -15px;
+    left: 37.5%;
+    width: 25%;
+    background-color: #54020d;
+  }
+  
+  .eventos-section h2::after {
+    position: relative;
+    bottom: -15px;
+    left: 37.5%;
+    width: 25%;
+    background-color: #54020d;
+  }
+}
+
+
+
+
+
 /* Loader */
 .loader-backdrop {
   position: absolute;

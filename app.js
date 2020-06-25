@@ -1,10 +1,10 @@
 require("dotenv").config();
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
 const flash = require("express-flash");
 const session = require("express-session");
 
@@ -12,11 +12,13 @@ const session = require("express-session");
 mongoose.connect(`mongodb+srv://amorPerfecto:Cafeperfecto2020@cluster0-v9m8j.gcp.mongodb.net/amor-perfecto`, {useNewUrlParser: true, useUnifiedTopology: true });
 
 // Routes Import
-var indexRouter = require('./routes/index');
-var profileRouter = require('./routes/profile');
-var adminRouter = require('./routes/admin');
+const indexRouter = require('./routes/index');
+const profileRouter = require('./routes/profile');
+const adminRouter = require('./routes/admin');
+const mercadoPagoRouter = require('./routes/mercadopago');
+const formularioRouter = require('./routes/formularioEventos');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +43,10 @@ app.use(
 app.use('/', indexRouter);
 app.use('/barista', profileRouter);
 app.use('/admin', adminRouter);
+app.use('/mercadopago', mercadoPagoRouter);
+app.use('/eventos', formularioRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -63,7 +69,7 @@ if (port == null || port == "") {
   port = 3000;
 }
 app.listen(port, () => {
-  console.log("App server start successfully");
+  console.log(`App server start successfully on port ${port}`);
 });
 
 // module.exports = app;
