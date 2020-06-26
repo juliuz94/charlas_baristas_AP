@@ -23,13 +23,13 @@
 
     <div class="container">
 
-      <div class="alert alert-danger alert-dismissible fade show" role="alert" id="infoAlert" style="width: 80%; margin: 0 auto;">
+      <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert" id="infoAlert" style="width: 80%; margin: 0 auto;">
         <button type="button" class="close" id="markAlertSeen" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="alert-heading">Recuerda que</h4>
         <p>Todas las compras a partir de <strong>20 de Mayo</strong> aplican</p>
-      </div>
+      </div> -->
 
       <div class="page-title">
         <hr class="deco-line-1">
@@ -40,6 +40,7 @@
       <div class="row baristas-row">
 
         <% baristas.forEach(barista => { %>
+          <% if(barista.name !== 'Luis Fernando Velez' ) { %>
         <div class="col-md-6 col-sm-12">
           <div class="card barista-card">
             <img src="<%=barista.imageUrl%>" class="card-img-top" alt="...">
@@ -50,6 +51,7 @@
             </div>
           </div>
         </div>
+        <% } %> 
         <% }); %>
       </div>
     </div>

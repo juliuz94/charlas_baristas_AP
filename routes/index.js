@@ -2,10 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 const Barista = require('../models/barista');
+const e = require('express');
+const barista = require('../models/barista');
 
 /* GET home page. */
 router.get('/', async (req, res) => {
-  const baristas = await Barista.find({});
+  let baristas = await Barista.find({});
   res.render('index', { baristas: baristas });
 });
 
