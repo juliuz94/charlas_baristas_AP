@@ -226,7 +226,7 @@ ul li p {
 /* EVENTOS */
 .eventos-header-section {
   height: 90vh;
-  background:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(https://www.cafeamorperfecto.com/wp-content/uploads/2020/06/header-image-conversatorio.jpg);
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(https://www.cafeamorperfecto.com/wp-content/uploads/2020/07/evento2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -258,24 +258,24 @@ ul li p {
   z-index: 200;
 }
 
-.eventos-header-section .row .text-div #semilla::before{
-  content: 'SEMILLA';
+.eventos-header-section .row .text-div #tinto-1::before{
+  content: 'TINTO';
   color: transparent;
   position: absolute;
   z-index: 100;
   margin-bottom: 20px;
   -webkit-text-stroke: 1px white;
-  transform: translate(10px, -10px);
+  transform: translate(-10px, -5px);
 }
 
-.eventos-header-section .row .text-div #taza::before{
-  content: 'TAZA';
+.eventos-header-section .row .text-div #tinto-2::before{
+  content: 'TINTO';
   color: transparent;
   position: absolute;
   z-index: 100;
   margin-bottom: 20px;
   -webkit-text-stroke: 1px white;
-  transform: translate(0px, 5px);
+  transform: translate(10px, 5px);
 }
 
 .eventos-header-section .row .text-div p {

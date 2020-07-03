@@ -40,7 +40,7 @@
       <div class="row baristas-row">
 
         <% baristas.forEach(barista => { %>
-          <% if(barista.name !== 'Luis Fernando Velez' ) { %>
+        <% if(barista.name !== 'Luis Fernando Velez' ) { %>
         <div class="col-md-6 col-sm-12">
           <div class="card barista-card">
             <img src="<%=barista.imageUrl%>" class="card-img-top" alt="...">
@@ -51,11 +51,13 @@
             </div>
           </div>
         </div>
-        <% } %> 
+        <% } %>
         <% }); %>
       </div>
     </div>
   </section>
+
+  <div id='app_plugin_rebus' class='app_plugin_rebus'></div>
 
   <section class="loader-backdrop">
     <img src="https://www.cafeamorperfecto.com/wp-content/uploads/2019/05/1_Mesa_de_trabajo_1.png"
@@ -91,6 +93,32 @@
     if (document.cookie.split(';').some((item) => item.trim().startsWith('markAlertSeen='))) {
       infoAlert.css('display', 'none');
     }
+  </script>
+
+  <script>
+    ! function () {
+      var x = document.createElement("script");
+      x.src = "http://localhost:8080/rebus-plugin-widget.min.js",
+        x.type = "text/javascript",
+        x.async = "true",
+        x.onload =
+        x.onreadystatechange =
+        function () {
+          var x = this.readyState;
+          if (!x || "complete" == x || "loaded" == x)
+            try {
+              WidgetRebus.default.mount({
+                initialState: 'close',
+                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6eyJuYW1lIjoiVGVzdCBjb24gbWFyY2FzICIsInR5cGUiOiJ3aWRnZXQiLCJXaWRnZXRDb25maWciOnsidGV4dEJ1dHRvbiI6IlRleHRvIGJvdMOzbiIsImNvbG9yQnV0dG9uRm9udCI6IiNmZmZmZmYiLCJjb2xvckJ1dHRvbkJhY2tncm91bmQiOiIjNjUzY2FkIiwid2l0aEJyYW5kcyI6dHJ1ZX19LCJldmVudElkIjoiNWU2N2E1NTk5YjZhMmE1ZjZmZTI2NzI0IiwiaWF0IjoxNTkwMDE1MDE3fQ.DWX5PKTFAqWMSF0jN4Yv3YBFswLcjvq7Fw8QMrbScKk',
+                site: 'right'
+              });
+            } catch (e) {
+              console.error('Error', e)
+            }
+        };
+      var t = document.getElementsByTagName("script")[0];
+      t.parentNode.insertBefore(x, t)
+    }();
   </script>
 </body>
 
