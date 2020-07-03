@@ -3,7 +3,6 @@ var router = express.Router();
 
 const Barista = require('../models/barista');
 const e = require('express');
-const barista = require('../models/barista');
 
 /* GET home page. */
 router.get('/', async (req, res) => {

@@ -2,7 +2,6 @@ require("dotenv").config();
 var express = require('express');
 var router = express.Router();
 const flash = require("express-flash");
-
 const Inscrito = require('../models/inscrito');
 
 const sgMail = require('@sendgrid/mail');
@@ -17,21 +16,32 @@ router.get('/', async (req, res) => {
 
 /* POST  inscripción evento  */
 router.post('/', async (req, res) => {
-    const newInscrito = new Inscrito ({
-        name: req.body.name,
-        email: req.body.email,
-        phoneNumber: req.body.telephone,
-        event: 'Tinto con tinto'
-    });
-    newInscrito.save();
+    
+    const inscrito = await Inscrito.findOne({email: req.body.email})
+    
+    console.log(req.body);
+    console.log(inscrito);
+    
+    if (inscrito === null || inscrito.event !== req.body.event) {
+        const newInscrito = new Inscrito ({
+            name: req.body.name,
+            email: req.body.email,
+            phoneNumber: req.body.telephone,
+            event: 'Tinto con tinto'
+        });
+        newInscrito.save();
+    
+        const msg = {
+            to: req.body.email,
+            from: "mercadeo@amorperfectocafe.net",
+            templateId: 'd-4937ea48b9864ab09ef247f3c55b4f82',
+        };
+        // await sgMail.send(msg);
+        req.flash('message', 'Tus inscripción ha sido exitosa. Por favor revisa tu email');
+        res.redirect('/eventos');
+    }
 
-    const msg = {
-        to: req.body.email,
-        from: "mercadeo@amorperfectocafe.net",
-        templateId: 'd-4937ea48b9864ab09ef247f3c55b4f82',
-    };
-    await sgMail.send(msg);
-    req.flash('message', 'Tus inscripción ha sido exitosa. Por favor revisa tu email');
+    req.flash('error', 'Ya estás inscrito a este evento');
     res.redirect('/eventos');
 
 })
