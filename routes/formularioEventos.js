@@ -19,9 +19,6 @@ router.post('/', async (req, res) => {
     
     const inscrito = await Inscrito.findOne({email: req.body.email})
     
-    console.log(req.body);
-    console.log(inscrito);
-    
     if (inscrito === null || inscrito.event !== req.body.event) {
         const newInscrito = new Inscrito ({
             name: req.body.name,
@@ -36,7 +33,7 @@ router.post('/', async (req, res) => {
             from: "mercadeo@amorperfectocafe.net",
             templateId: 'd-4937ea48b9864ab09ef247f3c55b4f82',
         };
-        // await sgMail.send(msg);
+        await sgMail.send(msg);
         req.flash('message', 'Tus inscripción ha sido exitosa. Por favor revisa tu email');
         res.redirect('/eventos');
     }
