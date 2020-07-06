@@ -9,7 +9,7 @@ const flash = require("express-flash");
 const session = require("express-session");
 
 // MongoDB Mongoose SetUp
-mongoose.connect(`mongodb+srv://amorPerfecto:Cafeperfecto2020@cluster0-v9m8j.gcp.mongodb.net/amor-perfecto`, {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://amorPerfecto:CafePerfecto2020@cluster0-v9m8j.gcp.mongodb.net/amor-perfecto`, {useNewUrlParser: true, useUnifiedTopology: true });
 
 // Routes Import
 const indexRouter = require('./routes/index');
