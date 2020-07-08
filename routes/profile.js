@@ -62,8 +62,8 @@ router.post('/order', async (req, res) => {
     const dateCreated = new Date(date_created);
     if (dateCreated < new Date('05/20/2020')) return res.render('not-found');
     // console.log('Fecha OK');
-    if (total < 50000) return res.render('not-found');
-    // console.log('Total OK');
+    // if (total < 50000) return res.render('not-found');
+    // // console.log('Total OK');
     if (status === 'cancelled') return res.render('not-found');
     // console.log('Status OK');
 
