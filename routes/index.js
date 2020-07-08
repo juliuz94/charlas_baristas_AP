@@ -6,7 +6,7 @@ const e = require('express');
 
 /* GET home page. */
 router.get('/', async (req, res) => {
-  let baristas = await Barista.find({});
+  let baristas = await Barista.find({}).sort({priority : 'asc'});
   res.render('index', { baristas: baristas });
 });
 
