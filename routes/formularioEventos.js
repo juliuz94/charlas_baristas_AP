@@ -17,14 +17,18 @@ router.get('/', async (req, res) => {
 /* POST  inscripción evento  */
 router.post('/', async (req, res) => {
     
-    const inscrito = await Inscrito.findOne({email: req.body.email})
+    const inscrito = await Inscrito.find({email: req.body.email})
+    console.log(inscrito)
+
+    const isAlreadyRegistered = inscrito.some(el => el.event === 'cafe-y-salud')
+    console.log(isAlreadyRegistered)
     
-    if (inscrito === null || inscrito.event !== req.body.event) {
+    if (inscrito === null || !isAlreadyRegistered) {
         const newInscrito = new Inscrito ({
             name: req.body.name,
             email: req.body.email,
             phoneNumber: req.body.telephone,
-            event: 'Tinto con tinto'
+            event: req.body.event
         });
         newInscrito.save();
     

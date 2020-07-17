@@ -226,65 +226,105 @@ ul li p {
 /* EVENTOS */
 .eventos-header-section {
   height: 90vh;
-  background:linear-gradient(0deg, rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url(https://www.cafeamorperfecto.com/wp-content/uploads/2020/07/evento2.jpg);
+  background: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 15% 0;
+  text-align: center;
+  color: #E1B32C;
+}
+
+.eventos-header-section p {
+  color: #806519;
+  font-size: 1.3rem;
+  margin: 2rem 0;
+}
+
+.header-content {
+  width: 90%;
+  max-width: 750px;
+  height: auto;
+}
+
+.header-content .yellow-line {
+  width: 70%;
+  height: 3rem;
+  background-color: #E1B32C;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+}
+
+.header-content .image-container {
+  background-color: lightgray;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 0.3rem;
+  z-index: 500;
+  position: relative;
+}
+
+.header-content .image-container img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.1rem;
+}
+
+.header-content .image-container h1 {
+  position: relative;
+  bottom: 1rem;
+}
+
+@media(max-width: 500px) {
+  .header-content .image-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media(max-width: 350px) {
+  .header-content .image-container h1 {
+    font-size: 1.8rem;
+  }
+}
+
+.header-content .image-container p {
+  margin-top: 0.7rem;
+  margin-bottom: 0;
+}
+
+.header-content h3 {
+  margin-top: 2rem;
 }
 
 .eventos-header-section .row {
-  height: 100%;
-  max-width: 100vw;
-  margin: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 0 20%;
+  justify-content: center;
 }
 
-.eventos-header-section .row .text-div {
-  text-align: start;
-  max-height: 80%;
+.eventos-header-section .col {
+  padding: 10% 0;
+  text-align: center;
+  width: 50%;   
+  height: auto;
+  max-width: 1000px;
+}
+
+.eventos-header-section .col .image {
+  padding: 3rem;
+  text-align: center;
   width: 100%;
+  background-color: gray;
 }
 
-.eventos-header-section .row .text-div h1 {
-  font-size: 5.5rem;
-  line-height: 1;
-  z-index: 200;
-}
-
-.eventos-header-section .row .text-div #tinto-1::before{
-  content: 'TINTO';
-  color: transparent;
-  position: absolute;
-  z-index: 100;
-  margin-bottom: 20px;
-  -webkit-text-stroke: 1px white;
-  transform: translate(-10px, -5px);
-}
-
-.eventos-header-section .row .text-div #tinto-2::before{
-  content: 'TINTO';
-  color: transparent;
-  position: absolute;
-  z-index: 100;
-  margin-bottom: 20px;
-  -webkit-text-stroke: 1px white;
-  transform: translate(10px, 5px);
-}
-
-.eventos-header-section .row .text-div p {
-  font-size: 1.5rem;
-  font-weight: bolder;
-}
-
-.eventos-header-section h1,
-.eventos-header-section p {
-  color: white;
+.eventos-header-section .col img {
+  width: 100%;
+  height: auto;
 }
 
 .eventos-section {
