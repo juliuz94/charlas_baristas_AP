@@ -48,9 +48,9 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/inscritos', async (req, res) => {
-    const inscritos = await Inscrito.find({event: 'Tinto con tinto'});
+    const inscritos = await Inscrito.find({event: 'cafe-y-salud'});
     console.log(inscritos.length)
-    res.render('lista-inscritos', {event: 'Tinto con tinto', inscritos: inscritos, amount: inscritos.length});
+    res.render('lista-inscritos', {event: 'Café y Salud', inscritos: inscritos, amount: inscritos.length});
 });
 
 module.exports = router;
