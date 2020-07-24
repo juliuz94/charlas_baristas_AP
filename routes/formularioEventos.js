@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
     
         const msg = {
             to: req.body.email,
-            from: "eventos@amorperfectocafe.net",
+            from: "conversatorios@amorperfectocafe.net",
             templateId: 'd-4937ea48b9864ab09ef247f3c55b4f82',
         };
         await sgMail.send(msg);
