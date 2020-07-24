@@ -226,68 +226,65 @@ ul li p {
 /* EVENTOS */
 .eventos-header-section {
   height: 90vh;
-  background: white;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://www.cafeamorperfecto.com/wp-content/uploads/2020/07/tintocontinto.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 15% 0;
   text-align: center;
-  color: #E1B32C;
+  color: white;
 }
 
-.eventos-header-section p {
-  color: #806519;
-  font-size: 1.3rem;
-  margin: 2rem 0;
-}
-
-.header-content {
-  width: 90%;
-  max-width: 750px;
-  height: auto;
-}
-
-.header-content .yellow-line {
-  width: 70%;
-  height: 3rem;
-  background-color: #E1B32C;
-  z-index: 100;
-  position: absolute;
-  top: 50%;
-  left: 20%;
-}
-
-.header-content .image-container {
-  background-color: lightgray;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-bottom: 0.3rem;
-  z-index: 500;
-  position: relative;
-}
-
-.header-content .image-container img {
+.eventos-header-section .header-content .logo {
+  display: block;
   width: 100%;
-  height: auto;
-  margin-bottom: 0.1rem;
+
 }
 
-.header-content .image-container h1 {
-  position: relative;
-  bottom: 1rem;
+.eventos-header-section .header-content .logo img {
+    max-width: 300px;
+    background-color: white;
+    padding: 10px 30px;
+    position: absolute;
+    top: 50px;
+    left:-webkit-calc(50% - 150px);
+    left:-moz-calc(50% - 150px);
+    left:calc(50% - 150px);
 }
 
-@media(max-width: 500px) {
-  .header-content .image-container h1 {
-    font-size: 2rem;
+.eventos-header-section .header-content h1 {
+  font-size: 7rem;
+}
+
+.eventos-header-section .header-content p {
+  font-size: 2rem;
+}
+
+
+
+@media(max-width: 600px) {
+  .eventos-header-section {
+    justify-content: center;
+  }
+  .eventos-header-section .header-content h1 {
+    font-size: 4rem;
+  }
+
+  .eventos-header-section .header-content p {
+    font-size: 1.2rem;
   }
 }
 
-@media(max-width: 350px) {
+@media(max-width: 520px) {
+  .eventos-header-section .header-content .logo img {
+    top: 0px;
+}
+}
+
+/* @media(max-width: 350px) {
   .header-content .image-container h1 {
     font-size: 1.8rem;
   }
@@ -325,7 +322,7 @@ ul li p {
 .eventos-header-section .col img {
   width: 100%;
   height: auto;
-}
+} */
 
 .eventos-section {
   margin: 50px 0;

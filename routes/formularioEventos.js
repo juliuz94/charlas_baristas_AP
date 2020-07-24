@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
     const inscrito = await Inscrito.find({email: req.body.email})
     console.log(inscrito)
 
-    const isAlreadyRegistered = inscrito.some(el => el.event === 'cafe-y-salud')
+    const isAlreadyRegistered = inscrito.some(el => el.event === 'tinto-con-tinto-2')
     console.log(isAlreadyRegistered)
     
     if (inscrito === null || !isAlreadyRegistered) {
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
     
         const msg = {
             to: req.body.email,
-            from: "mercadeo@amorperfectocafe.net",
+            from: "eventos@amorperfectocafe.net",
             templateId: 'd-4937ea48b9864ab09ef247f3c55b4f82',
         };
         await sgMail.send(msg);
