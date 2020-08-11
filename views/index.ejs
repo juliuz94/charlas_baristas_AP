@@ -40,7 +40,7 @@
       <div class="row baristas-row">
 
         <% baristas.forEach(barista => { %>
-        <% if(barista.name !== 'Luis Fernando Velez' ) { %>
+        <% if(barista.name !== 'Luis Fernando Velez' && barista.name !== 'Walter Acevedo') { %>
         <div class="col-md-6 col-sm-12">
           <div class="card barista-card">
             <img src="<%=barista.imageUrl%>" class="card-img-top" alt="...">
