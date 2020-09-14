@@ -1,9 +1,9 @@
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 
 const woocommerce = new WooCommerceRestApi({
-  url: "https://www.cafeamorperfecto.com",
-  consumerKey: "ck_fd34be9f5745faf54062c49f44414f3cce6c7044",
-  consumerSecret: 'cs_3afac13f39577ae7a38f70773b12e64719702d9c',
+  url: "https://cafeamorperfecto.com/",
+  consumerKey: "ck_9fe77857a7fbe8be87f51e28605267982f3c60b7",
+  consumerSecret: 'cs_9814c80a24810f947ad1e4eae3cb44828b53474b',
   version: "wc/v3"
 });
 
